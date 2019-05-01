@@ -1,0 +1,11 @@
+{
+  "applicationName": "app",
+  "description": "My application",
+  "outdir": "/usr/src/app",
+  "tslint": true,
+  "prettier": true,
+  "mocha": true,
+  "loopbackBuild": true,
+  "vscode": false,
+  "docker": false  
+}
