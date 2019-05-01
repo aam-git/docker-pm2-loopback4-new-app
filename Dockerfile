@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 RUN apt-get update && \
     apt-get install -y git && \ 
     curl -fsSL "https://raw.githubusercontent.com/aam-git/docker-pm2-loopback4-new-app/master/ecosystem.config.js" -o ecosystem.config.js && \
+	curl -fsSL "https://raw.githubusercontent.com/aam-git/docker-pm2-loopback4-new-app/master/config.json" -o config.json && \
     npm i -g @loopback/cli && \
     cat config.json | lb4 app --config stdin
 
