@@ -1,0 +1,35 @@
+version: '2'
+services:
+  mongo:
+    image: mongo
+    hostname: mongo
+    ports:
+      - 27017
+    restart: always
+    networks:
+      - internal
+    volumes:
+      - ../data/mongo:/data/db
+  redis:
+    image: redis
+    hostname: redis
+    ports:
+      - 6379
+    networks:
+      - internal
+    volumes:
+      - ../data/redis:/data
+    restart: always
+  client:
+    image: aamservices/pm2-loopback4-new-app
+    restart: always
+    volumes:
+      - ../data/loopback:/usr/src/app
+    ports:
+      - 3000
+    networks:
+      - external
+      - internal
+    depends_on:
+      - mongo
+      - redis
